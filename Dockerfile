@@ -1,4 +1,4 @@
-FROM microsoft/iis
+FROM microsoft/iis:windowsservercore
 
 RUN mkdir C:\site
 
