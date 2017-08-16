@@ -6,8 +6,7 @@ pipeline {
                 label 'windows'
             }
             steps {
-                bat 'dir'
-                bat 'cd'
+                bat 'C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\msbuild .\\MiniBlog.sln'
             }
         }
     }
