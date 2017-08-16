@@ -6,7 +6,8 @@ pipeline {
                 label 'windows'
             }
             steps {
-                bat 'ls'
+                bat 'dir'
+                bat 'cd'
             }
         }
     }
