@@ -7,7 +7,7 @@ RUN powershell -NoProfile -Command \
     New-IISSite -Name "Site" -PhysicalPath C:\site -BindingInformation "*:8000:"
 
 # Install Application Pool
-# RUN powershell -NoProfile -Command Install-WindowsFeature Web-Asp-Net45
+RUN powershell -NoProfile -Command Install-WindowsFeature Web-Asp-Net45
 
 # Turn off handlers and modules in delegation
 RUN powershell -NoProfile -Command import-module WebAdministration; \
