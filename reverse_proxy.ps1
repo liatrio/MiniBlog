@@ -2,11 +2,6 @@
 
 param([string]$appName)
 
-$PSVersionTable
-[Environment]::Is64BitProcess
-whoami
-
-
 $newIP = $(docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" $appName)
 $site = "iis:\sites\Default Web Site"
 $filterRootIn = "system.webServer/rewrite/rules/rule[@name='$appName-in$_']"
@@ -25,4 +20,4 @@ Set-WebConfigurationProperty -pspath $site -filter "$filterRootIn/match" -name "
 Set-WebConfigurationProperty -pspath $site -filter "$filterRootIn/action" -name "type" -value "Rewrite"
 
 # Sets IP in the server 
-Set-WebConfigurationProperty -pspath $site -filter "$filterRootIn/action" -name "url" -value "http://${newIP}:8000/{R:0}"
+Set-WebConfigurationProperty -pspath $site -filter "$filterRootIn/action" -name "url" -value "http://${newIP}:80/{R:0}"
