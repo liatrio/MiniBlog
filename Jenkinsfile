@@ -23,7 +23,8 @@ pipeline {
                 label 'windows'
             }
             steps {
-                bat("powershell -File \${pwd}\reverse_proxy.ps1 --appName miniblog") 
+                // bat('powershell -File .\\reverse_proxy.ps1 --appName miniblog') 
+                bat('powershell -NoProfile -Command Invoke-Command -ComputerName . -ScriptBlock { [Environment]::Is64BitProcess }')
             }
         }
     }
