@@ -18,5 +18,13 @@ pipeline {
                 bat 'docker run -d -p 8000:8000 --name miniblog iis-site'
             }
         }
+        stage('reverse proxy') {
+            agent {
+                label 'windows'
+            }
+            steps {
+                bat("powershell -File \${pwd}\reverse_proxy.ps1 --appName miniblog") 
+            }
+        }
     }
 }
