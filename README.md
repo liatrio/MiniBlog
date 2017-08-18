@@ -1,6 +1,13 @@
 # MiniBlog
 
-A blogging engine based on HTML5 and ASP.NET.
+A blogging engine based on HTML5 and ASP.NET. Liatrio decided to fork this app
+to be used as a sample .NET application within
+[LDOP](https://github.com/liatrio/ldop-docker-compose). Since we needed to add a
+Dockerfile and Jenkinsfile the need to fork was real.
+[madskristensen](https://github.com/madskristensen) did great work and we
+appreciate his contribution to the community.
+
+
 
 [![Build status](https://ci.appveyor.com/api/projects/status/n78wm50a4a3odecb)](https://ci.appveyor.com/project/madskristensen/miniblog)
 
@@ -12,15 +19,15 @@ Password: _demo_
 
 ## Simple, flexible and powerful
 
-A minimal, yet full featured blog engine using ASP.NET Razor Web Pages. 
-Perfect for the blogger who wants to selfhost a blog. 
+A minimal, yet full featured blog engine using ASP.NET Razor Web Pages.
+Perfect for the blogger who wants to selfhost a blog.
 
 ### Features
 
 * Best-in-class __performance__
  * Gets a perfect score of 100/100 on Google Page Speed
  * Uses __CDN__ for Bootstrap and jQuery in release mode (debug="false")
- * Easy setting for serving static files from another domain. 
+ * Easy setting for serving static files from another domain.
      * Supports the ASP.NET [Reverse Proxy](https://github.com/madskristensen/ReverseProxyCDN)
 * __Open Live Writer__ (OLW) support
  * Optimized for OLW
@@ -28,7 +35,7 @@ Perfect for the blogger who wants to selfhost a blog.
  * You don't have to use OLW (but you should)
 * RSS and ATOM __feeds__
 * Schedule posts to be published on a future date
-* Get feedback on an unpublished post by sending a preview link 
+* Get feedback on an unpublished post by sending a preview link
 * __SEO__ optimized
  * Uses HTML 5 __microdata__ to add semantic meaning
  * Support for __robots.txt__ and __sitemap.xml__
@@ -40,7 +47,7 @@ Perfect for the blogger who wants to selfhost a blog.
  * Move your existing blog to MiniBlog using [MiniBlog Formatter](https://github.com/madskristensen/MiniBlogFormatter)
 * __Inline editing__ of blog posts
 * Comments support
- * __Gravatar__ support 
+ * __Gravatar__ support
  * Can easily be replaced by 3rd-party commenting system
 * __Drag 'n drop__ images to upload
  * Automatically __optimizes uploaded images__
@@ -52,14 +59,14 @@ Perfect for the blogger who wants to selfhost a blog.
 * Works on any host including __Windows Azure__ Websites
 
 ### Why another blog engine?
-7 years have passed since I started the [BlogEngine.NET](http://dotnetblogengine.net) project. 
-It was using cutting edge technology for its time and quickly became the 
+7 years have passed since I started the [BlogEngine.NET](http://dotnetblogengine.net) project.
+It was using cutting edge technology for its time and quickly became the
 most popular blogging platform using ASP.NET.
 
 The MiniBlog was born as a test to see what a modern blog engine could
 look like today with the latest ASP.NET and HTML 5 technologies. Just like
-with BlogEngine.NET, the goal was to see how small and simple such a 
-blog engine could be. 
+with BlogEngine.NET, the goal was to see how small and simple such a
+blog engine could be.
 
 This is the result.
 
@@ -75,7 +82,7 @@ To connect to MiniBlog with Open Live Writer:
 
 - The __Add a blog account__ dialog window will ask you for the web address of your blog, the username and password. The web address is the root address of your site. For example, use http://miniblog.azurewebsites.net/ for the live demo site.
 
-- The __Download Blog Theme__ dialog window will let you know Open Live Writer can download your blog theme if you allow it to publish a temporary post. Selecting yes will allow you to view how your posts will look directly from the Open Live Writer editor. 
+- The __Download Blog Theme__ dialog window will let you know Open Live Writer can download your blog theme if you allow it to publish a temporary post. Selecting yes will allow you to view how your posts will look directly from the Open Live Writer editor.
 
 - The __Select blog type__ dialog window will let you know Open Live Writer was not able to detect your blog type. It will ask you for the type of blog and the remote posting URL.  
 Type of blog that you are using: _Metaweblog API_  
@@ -89,7 +96,7 @@ Open Live Writer can be downloaded at:
 
 ### Configuring MiniBlog as Virtual Application
 
-MiniBlog is very compact and can be configured as a Virtual Application so you'd be able to use it alongside your existing websites. 
+MiniBlog is very compact and can be configured as a Virtual Application so you'd be able to use it alongside your existing websites.
 For example if you've got a running ASP.NET website at `http://yourexamplesite.com/` and you want to setup a blog under `/blog/` path, you could setup `http://yourexamplesite.com/blog/` with a few simple tweaks in web.config settings:
 
 - Set `blog:path` element of `appSettings` to the virtual path that you've configured for MiniBlog. Example with path `blog`
