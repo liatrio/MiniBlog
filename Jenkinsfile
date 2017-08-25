@@ -15,7 +15,9 @@ pipeline {
             }
             steps {
                 bat 'docker build -t iis-site .'
-                bat 'docker run -d -p 8000:8000 --name miniblog iis-site'
+                bat 'docker kill miniblog' 
+                bat 'docker rm miniblog'
+                bat 'docker run -d --name miniblog iis-site'
             }
         }
         stage('reverse proxy') {
