@@ -4,10 +4,10 @@ param([string]$appName)
 
 # Check for Already running instance
 If(docker ps | Select-String -Pattern $appName) {
-    docker kill miniblog
-    docker rm miniblog
+    docker kill $appName
+    docker rm $appName
 } ElseIf (docker ps -a | Select-String -Pattern $appName) {
-    docker rm miniblog
+    docker rm $appName
 } 
 
 # Run new instance
