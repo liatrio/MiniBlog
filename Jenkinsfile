@@ -2,21 +2,22 @@ pipeline {
     agent none
     stages {
          stage('build') {
-             agent {
-                 label 'windows'
-             }
+            agent {
+                label 'windows'
+            }
              steps {
-                 bat 'C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\msbuild .\\MiniBlog.sln'
-             }
+                bat 'powershell -NoProfile -Command pwd'
+                bat 'C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\msbuild .\\MiniBlog.sln'
+            }
         }
         stage('deploy') {
             agent {
                 label 'windows'
             }
             steps {
+                bat 'powershell -NoProfile -Command pwd'
+                bat 'powershell -NoProfile -Command ls'
                 bat 'docker build -t iis-site .'
-                bat 'docker kill miniblog' 
-                bat 'docker rm miniblog'
                 bat 'docker run -d --name miniblog iis-site'
             }
         }
