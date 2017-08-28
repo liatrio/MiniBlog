@@ -6,7 +6,6 @@ pipeline {
                 label 'windows'
             }
              steps {
-                bat 'powershell -NoProfile -Command pwd'
                 bat 'C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\msbuild .\\MiniBlog.sln'
             }
         }
@@ -15,10 +14,8 @@ pipeline {
                 label 'windows'
             }
             steps {
-                bat 'powershell -NoProfile -Command pwd'
-                bat 'powershell -NoProfile -Command ls'
                 bat 'docker build -t iis-site .'
-                bat 'docker run -d --name miniblog iis-site'
+                bat('powershell -NoProfile -Command Invoke-Command -ComputerName . -FilePath .\\docker_deploy.ps1  -ArgumentList miniblog')
             }
         }
         stage('reverse proxy') {
