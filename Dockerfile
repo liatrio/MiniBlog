@@ -21,4 +21,4 @@ RUN powershell -NoProfile -Command import-module WebAdministration; \
 ADD https://download.microsoft.com/download/C/9/E/C9E8180D-4E51-40A6-A9BF-776990D8BCA9/rewrite_amd64.msi rewrite_amd64.msi
 RUN rewrite_amd64.msi & del rewrite_amd64.msi
 
-ADD website/ /site
+COPY PrecompiledWeb/localhost_36123/ site/

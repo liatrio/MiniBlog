@@ -2,12 +2,12 @@ pipeline {
     agent none
     stages {
          stage('build') {
-             agent {
-                 label 'windows'
-             }
+            agent {
+                label 'windows'
+            }
              steps {
-                 bat 'C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\msbuild .\\MiniBlog.sln'
-             }
+                bat 'C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\msbuild .\\MiniBlog.sln'
+            }
         }
         stage('deploy') {
             agent {
@@ -15,7 +15,7 @@ pipeline {
             }
             steps {
                 bat 'docker build -t iis-site .'
-                bat 'docker run -d -p 8000:8000 --name miniblog iis-site'
+                bat('powershell -NoProfile -Command Invoke-Command -ComputerName . -FilePath .\\docker_deploy.ps1  -ArgumentList miniblog')
             }
         }
         stage('reverse proxy') {
